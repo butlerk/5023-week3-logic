@@ -7,12 +7,26 @@
         <h1>This is my first Flask site.</h1>
         <p>Flask is a web framework.</p>
         <h2>My favourite food is {{ favourite_food }}.</h2>
-        <p>Adding {{ number1 }} and {{ number2 }} equals {{ number1 + number2 }}</p>
+
+        {% if number > 100 %}
+        <p>I like big numbers.</p>
+        {% else %}
+        <p>I like small numbers.</p>
+        {% endif %}
+
+        <h2>Student grades</h2>
+        {% for key, value in grades.items() %}
+        <p>{{ key }} -- {{ value }}</p>
+        {% endfor %}
+
         {% for item in grades %}
-    <h2>{{ item.name }}</h2>
-    <p>English: {{ item.english }}</p>
-    <p>Science: {{ item.science }}</p>
-    <p>Maths: {{ item.maths }}</p>
-{% endfor %}
+            <h2>{{ item.name }}</h2>
+            <p>English: {{ item.english }}</p>
+            <p>Science: {{ item.science }}</p>
+            <p>Maths: {{ item.maths }}</p>
+        {% endfor %}
+
+        
+
     </body>
 </html>
